@@ -1,0 +1,230 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Lab Skills",
+      "projects": "Research",
+      "certificates": "Certificates",
+      "cv": "CV",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "hero": {
+      "greeting": "Hello, I am",
+      "name": "Mahmoud Mohamed KhalafAllah",
+      "roles": ["Bioinformatics Student", "Genetics Researcher", "Molecular Biologist"],
+      "cta1": "View Research",
+      "cta2": "Download CV"
+    },
+    "about": {
+      "title": "About Me",
+      "content": "I am a Biotechnology and Bioinformatics student with a strong passion for exploring the intersection between biology and computational science. I am particularly interested in analyzing biological data and applying modern tools such as Python and machine learning to solve real-world problems in genetics and molecular biology. Through my academic journey, I have developed foundational skills in both wet lab techniques, including PCR and DNA analysis, and dry lab approaches such as data analysis and bioinformatics tools. I enjoy transforming complex biological concepts into structured, data-driven insights. I am continuously working on developing my research skills, scientific writing, and critical thinking, aiming to contribute to innovative solutions in healthcare, genomics, and biotechnology.",
+      "interests": ["Genetics", "Bioinformatics", "Molecular Biology"]
+    },
+    "skills": {
+      "title": "Skills Laboratory",
+      "categories": [
+        {
+          "id": "dryLab",
+          "title": "Dry Lab Skills",
+          "items": [
+            { "name": "Python / Biopython", "level": 90 },
+            { "name": "R / Bioconductor", "level": 85 },
+            { "name": "AI & Machine Learning", "level": 75 },
+            { "name": "Data Analysis & Visualization", "level": 88 }
+          ]
+        },
+        {
+          "id": "wetLab",
+          "title": "Wet Lab Skills",
+          "items": [
+            { "name": "PCR & Gel Electrophoresis", "level": 95 },
+            { "name": "Cell Culture", "level": 80 },
+            { "name": "DNA Extraction", "level": 90 },
+            { "name": "Basic laboratory safety and protocols", "level": 96 }
+          ]
+        },
+        {
+          "id": "scientific",
+          "title": "Scientific & Academic Skills",
+          "items": [
+            { "name": "Scientific Writing", "level": 85 },
+            { "name": "Research Methodology", "level": 90 },
+            { "name": "Critical Thinking", "level": 92 }
+          ]
+        },
+        {
+          "id": "soft",
+          "title": "Soft Skills",
+          "items": [
+            { "name": "Teamwork and Collaboration", "level": 95 },
+            { "name": "Scientific Communication", "level": 88 },
+            { "name": "Problem Solving", "level": 90 },
+            { "name": "Time Management", "level": 85 },
+            { "name": "Adaptability", "level": 92 }
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "title": "Academic Projects",
+      "items": [
+        {
+          "title": "Genomic Sequence Alignment Tool",
+          "desc": "Developed a custom Python script using Needleman-Wunsch algorithm for optimal global alignment.",
+          "tags": ["Python", "Algorithms"],
+          "fileUrl": "/projects/example-project.pdf"
+        },
+        {
+          "title": "Protein Structure Prediction Analysis",
+          "desc": "Comparative study of AlphaFold2 vs traditional homology modeling for novel proteins.",
+          "tags": ["Bioinformatics", "AI"],
+          "fileUrl": "/projects/example-project.pdf"
+        }
+      ]
+    },
+    "certificates": {
+      "title": "Certificates & Achievements",
+      "items": [
+        {
+          "title": "Bioinformatics Specialization",
+          "issuer": "Coursera",
+          "date": "2023",
+          "fileUrl": "/certificates/example-cert.pdf"
+        },
+        {
+          "title": "Molecular Biology Workshop",
+          "issuer": "University Lab",
+          "date": "2024",
+          "fileUrl": ""
+        }
+      ]
+    },
+    "cv": {
+      "title": "CV & Downloads",
+      "desc": "Download my latest academic CV and research summaries."
+    },
+    "contact": {
+      "title": "Contact Protocol",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "msgLabel": "Message",
+      "submit": "Send Transmission"
+    }
+  },
+  "ar": {
+    "nav": {
+      "home": "الرئيسية",
+      "about": "عني",
+      "skills": "المهارات المخبرية",
+      "projects": "الأبحاث",
+      "certificates": "الشهادات",
+      "cv": "السيرة الذاتية",
+      "blog": "المدونة",
+      "contact": "تواصل"
+    },
+    "hero": {
+      "greeting": "مرحباً، أنا",
+      "name": "محمود محمد خلف الله",
+      "roles": ["طالب معلوماتية حيوية", "باحث في علم الوراثة", "عالم أحياء جزيئية"],
+      "cta1": "شاهد أبحاثي",
+      "cta2": "تحميل السيرة الذاتية"
+    },
+    "about": {
+      "title": "نبذة عني",
+      "content": "أنا طالب في تخصص التقنية الحيوية والمعلوماتية الحيوية، لدي شغف قوي باستكشاف التقاطع بين علم الأحياء والعلوم الحاسوبية. أهتم بشكل خاص بتحليل البيانات البيولوجية وتطبيق الأدوات الحديثة مثل بايثون والتعلم الآلي لحل المشكلات الواقعية في علم الوراثة والبيولوجيا الجزيئية. من خلال رحلتي الأكاديمية، طورت مهارات أساسية في تقنيات المختبرات الرطبة (Wet Lab)، بما في ذلك PCR وتحليل الحمض النووي، ونهج المختبرات الجافة (Dry Lab) مثل تحليل البيانات وأدوات المعلوماتية الحيوية. أنا أعمل باستمرار على تطوير مهاراتي البحثية والكتابة العلمية والتفكير النقدي، بهدف المساهمة في حلول مبتكرة في الرعاية الصحية وعلم الجينوم والتقنية الحيوية.",
+      "interests": ["علم الوراثة", "المعلوماتية الحيوية", "البيولوجيا الجزيئية"]
+    },
+    "skills": {
+      "title": "مختبر المهارات",
+      "categories": [
+        {
+          "id": "dryLab",
+          "title": "مهارات المختبر الجاف (Dry Lab)",
+          "items": [
+            { "name": "بايثون / Biopython", "level": 90 },
+            { "name": "لغة R / Bioconductor", "level": 85 },
+            { "name": "الذكاء الاصطناعي", "level": 75 },
+            { "name": "تحليل البيانات وتصويرها", "level": 88 }
+          ]
+        },
+        {
+          "id": "wetLab",
+          "title": "مهارات المختبر الرطب (Wet Lab)",
+          "items": [
+            { "name": "تفاعل البوليميراز المتسلسل (PCR)", "level": 95 },
+            { "name": "زراعة الخلايا", "level": 80 },
+            { "name": "استخلاص الحمض النووي", "level": 90 },
+            { "name": "بروتوكولات وسلامة المختبرات الأساسية", "level": 96 }
+          ]
+        },
+        {
+          "id": "scientific",
+          "title": "المهارات العلمية والأكاديمية",
+          "items": [
+            { "name": "الكتابة العلمية", "level": 85 },
+            { "name": "منهجية البحث", "level": 90 },
+            { "name": "التفكير النقدي", "level": 92 }
+          ]
+        },
+        {
+          "id": "soft",
+          "title": "المهارات الشخصية",
+          "items": [
+            { "name": "العمل الجماعي والتعاون", "level": 95 },
+            { "name": "التواصل العلمي", "level": 88 },
+            { "name": "حل المشكلات", "level": 90 },
+            { "name": "إدارة الوقت", "level": 85 },
+            { "name": "القدرة على التكيف", "level": 92 }
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "title": "المشاريع الأكاديمية",
+      "items": [
+        {
+          "title": "أداة محاذاة التسلسل الجينومي",
+          "desc": "تطوير نص بايثون باستخدام خوارزمية Needleman-Wunsch للمحاذاة العالمية المثلى.",
+          "tags": ["بايثون", "خوارزميات"],
+          "fileUrl": "/projects/example-project.pdf"
+        },
+        {
+          "title": "تحليل توقع بنية البروتين",
+          "desc": "دراسة مقارنة بين AlphaFold2 والنمذجة التقليدية للبروتينات الجديدة.",
+          "tags": ["المعلوماتية الحيوية", "الذكاء الاصطناعي"],
+          "fileUrl": "/projects/example-project.pdf"
+        }
+      ]
+    },
+    "certificates": {
+      "title": "الشهادات والإنجازات",
+      "items": [
+        {
+          "title": "تخصص المعلوماتية الحيوية",
+          "issuer": "كورسيرا",
+          "date": "2023",
+          "fileUrl": "/certificates/example-cert.pdf"
+        },
+        {
+          "title": "ورشة عمل البيولوجيا الجزيئية",
+          "issuer": "مختبر الجامعة",
+          "date": "2024",
+          "fileUrl": ""
+        }
+      ]
+    },
+    "cv": {
+      "title": "السيرة الذاتية والتنزيلات",
+      "desc": "قم بتنزيل أحدث سيرة ذاتية أكاديمية وملخصات بحثية."
+    },
+    "contact": {
+      "title": "بروتوكول التواصل",
+      "nameLabel": "الاسم",
+      "emailLabel": "البريد الإلكتروني",
+      "msgLabel": "الرسالة",
+      "submit": "إرسال الإشارة"
+    }
+  }
+}
