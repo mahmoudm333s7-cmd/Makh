@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAppContext } from '../context/AppContext';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, Dna } from 'lucide-react';
 import siteData from '../data/siteData.json';
 
@@ -82,22 +83,39 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden glass-panel absolute w-full left-0 top-full mt-2 max-h-[80vh] overflow-y-auto">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-300 hover:text-neon-blue block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden glass-panel absolute w-[95%] left-[2.5%] top-full mt-4 overflow-hidden shadow-2xl border-neon-blue/20"
+          >
+            <div className="px-4 pt-4 pb-6 space-y-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-300 hover:text-neon-blue block px-4 py-3 rounded-xl text-lg font-medium hover:bg-white/5 transition-all flex items-center justify-between group"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                  <span className="w-2 h-2 rounded-full bg-neon-blue opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ))}
+              <div className="pt-4 border-t border-white/10 mt-2">
+                <button
+                  onClick={() => { toggleLang(); setIsOpen(false); }}
+                  className="w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-neon-green/10 text-neon-green font-bold hover:bg-neon-green hover:text-black transition-all"
+                >
+                  <Globe size={20} />
+                  <span>{lang === 'en' ? 'SWITCH TO ARABIC' : 'التبديل إلى الإنجليزية'}</span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

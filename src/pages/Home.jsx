@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import profileImg from '../assets/profile.jpg';
 import { useAppContext } from '../context/AppContext';
 import siteData from '../data/siteData.json';
 import {
@@ -81,15 +82,15 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col gap-28 pb-32">
+    <div className="flex flex-col gap-16 md:gap-28 pb-32 overflow-x-hidden">
 
       {/* ── Hero ── */}
-      <section id="home" className="min-h-[90vh] flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+      <section id="home" className="min-h-[90vh] md:min-h-[80vh] flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-green/10 rounded-full blur-[120px] -z-10" />
         <motion.div initial="hidden" animate="visible" variants={sec} className="max-w-4xl z-10">
           <motion.p variants={child} className="text-neon-green font-mono mb-4 text-lg">{data.hero.greeting}</motion.p>
-          <motion.h1 variants={child} className="text-5xl md:text-7xl font-heading font-bold mb-6 neon-text-blue">{data.hero.name}</motion.h1>
+          <motion.h1 variants={child} className="text-3xl sm:text-6xl md:text-7xl font-heading font-bold mb-6 neon-text-blue leading-tight">{data.hero.name}</motion.h1>
           <motion.div variants={child} className="flex flex-wrap justify-center gap-4 mb-10">
             {data.hero.roles.map((r, i) => (
               <span key={i} className="px-4 py-2 glass-panel text-sm md:text-base border-neon-blue/30 text-gray-300">{r}</span>
@@ -112,9 +113,9 @@ const Home = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.about.title}</h2>
           <div className="h-px bg-neon-blue flex-grow opacity-50" />
         </div>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <motion.div variants={child} className="text-gray-300 leading-relaxed text-lg flex flex-col gap-6">
-            <p>{data.about.content}</p>
+            <p className="text-base md:text-lg">{data.about.content}</p>
             <div className="glass-panel p-6 border-l-4 border-l-neon-green bg-neon-green/5 italic text-gray-200">
               "{data.about.researchGoal}"
             </div>
@@ -135,7 +136,7 @@ const Home = () => {
             <div className="absolute inset-0 bg-neon-blue rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 w-64 h-64 md:w-[320px] md:h-[320px] mx-auto" />
             <div className="glass-panel w-64 h-64 md:w-[320px] md:h-[320px] rounded-full flex items-center justify-center relative overflow-hidden border-2 border-neon-blue/40 shadow-[0_0_15px_rgba(0,242,255,0.2)]">
               <img
-                src="/src/assets/Mahmoud Khalaf-Allah.jpeg"
+                src={profileImg}
                 alt={data.hero.name}
                 className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 onError={(e) => { e.target.src = 'https://via.placeholder.com/320x320/0a0a0a/00f2ff?text=M.K'; }}
