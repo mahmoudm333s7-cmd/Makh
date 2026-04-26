@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, Dna } from 'lucide-react';
+import { Menu, X, Globe, Dna, Sun, Moon } from 'lucide-react';
 import siteData from '../data/siteData.json';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { lang, toggleLang } = useAppContext();
+  const { lang, toggleLang, darkMode, toggleDarkMode } = useAppContext();
   const content = siteData[lang].nav;
 
   useEffect(() => {
@@ -60,6 +60,13 @@ const Navbar = () => {
                 <Globe size={18} />
                 <span className="uppercase text-sm font-bold">{lang === 'en' ? 'AR' : 'EN'}</span>
               </button>
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-neon-blue transition-all ml-2"
+                aria-label="Toggle Theme"
+              >
+                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
             </div>
           </div>
 
@@ -71,6 +78,12 @@ const Navbar = () => {
             >
               <Globe size={16} />
               {lang === 'en' ? 'AR' : 'EN'}
+            </button>
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 text-neon-blue"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}

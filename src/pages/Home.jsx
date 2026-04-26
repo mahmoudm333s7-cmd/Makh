@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import profileImg from '../assets/profile.jpg';
 import { useAppContext } from '../context/AppContext';
@@ -8,7 +8,7 @@ import {
   Database, Send, FileText, ChevronDown, BookOpen,
   Users, Award, GraduationCap, Target,
   Linkedin, Github, Globe, Mail, BookMarked,
-  Brain, Lightbulb, Compass, Zap, ClipboardList
+  Brain, Lightbulb, Compass, Zap, ClipboardList, ArrowUp
 } from 'lucide-react';
 
 const sec = {
@@ -55,6 +55,19 @@ const Home = () => {
   const data = siteData[lang];
   const [activeCategory, setActiveCategory] = useState('tools');
   const [formStatus, setFormStatus] = useState('idle');
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -115,11 +128,11 @@ const Home = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <motion.div variants={child} className="text-gray-300 leading-relaxed text-lg flex flex-col gap-6">
-            <p className="text-base md:text-lg">{data.about.content}</p>
-            <div className="glass-panel p-6 border-l-4 border-l-neon-green bg-neon-green/5 italic text-gray-200">
+            <p className="text-base md:text-lg text-white">{data.about.content}</p>
+            <div className="glass-panel p-6 border-l-4 border-l-neon-green bg-neon-green/5 italic text-gray-300">
               "{data.about.researchGoal}"
             </div>
-            <p className="text-gray-400">{data.about.differentiation}</p>
+            <p className="text-gray-300">{data.about.differentiation}</p>
             
             <div className="mt-4">
               <h3 className="text-neon-blue font-bold mb-3">{data.interests.title}:</h3>
@@ -128,6 +141,24 @@ const Home = () => {
                   <span key={i} className="flex items-center gap-2 text-neon-green text-sm font-mono border border-neon-green/30 px-3 py-1 rounded-md bg-neon-green/5">
                     <Microscope size={14} /> {it}
                   </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Languages Display - Moved here */}
+            <div className="mt-8">
+              <h3 className="text-neon-blue font-bold mb-4 flex items-center gap-2">
+                <Globe size={20} /> {data.languages.title}:
+              </h3>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                {data.languages.items.map((l, i) => (
+                  <div key={i} className="glass-panel px-2 py-3 border-white/5 bg-white/5 flex flex-col sm:flex-row items-center gap-2 sm:gap-3 hover:border-neon-blue/40 transition-colors text-center sm:text-left">
+                    <span className="text-2xl sm:text-3xl">{l.flag}</span>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] sm:text-xs font-bold text-white leading-tight">{l.name}</span>
+                      <span className="text-[8px] sm:text-[10px] text-neon-green uppercase tracking-tighter">{l.level}</span>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -225,11 +256,23 @@ const Home = () => {
                     >
                       <div className="px-6 pb-6 pt-2 grid sm:grid-cols-2 gap-4">
                         {cat.items.map((skill, i) => (
-                          <div key={i} className="flex flex-col gap-2 glass-panel p-3 border-white/5 bg-black/20">
-                            <span className="text-gray-200 text-sm font-bold">{skill.name}</span>
-                            <span className={`text-xs font-mono px-2 py-1 rounded w-fit border ${levelColor(skill.level)}`}>
-                              {skill.level}
-                            </span>
+                          <div key={i} className="flex flex-col gap-3 glass-panel p-4 border-white/5 bg-black/20 group/skill">
+                            <div className="flex justify-between items-center">
+                              <span className="text-white text-sm font-bold">{skill.name}</span>
+                              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${levelColor(skill.level)}`}>
+                                {skill.level}
+                              </span>
+                            </div>
+                            <div className="skill-bar-track">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${skill.proficiency}%` }}
+                                transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                                viewport={{ once: true }}
+                                className={`skill-bar-fill ${getCatColor(cat.id).replace('text-', 'bg-')}`}
+                                style={{ '--bar-width': `${skill.proficiency}%` }}
+                              />
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -247,7 +290,7 @@ const Home = () => {
               </h3>
               <ul className="space-y-3">
                 {data.learning.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-300 text-sm">
+                  <li key={i} className="flex items-start gap-2 text-white text-sm">
                     <Zap className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" /> {item}
                   </li>
                 ))}
@@ -391,6 +434,40 @@ const Home = () => {
         </div>
       </motion.section>
 
+      {/* ── Science Communication (Articles) ── */}
+      <motion.section id="articles" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-4xl mx-auto px-4 w-full">
+        <div className="flex items-center gap-4 mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.articles.title}</h2>
+          <div className="h-px bg-neon-blue flex-grow opacity-50" />
+        </div>
+        <div className="flex flex-col gap-6">
+          {data.articles.items.map((article, i) => (
+            <motion.div key={i} variants={child} className="glass-panel p-6 border-neon-blue/20 hover:border-neon-blue/50 transition-all duration-300 group bg-surface/40">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 rounded-xl bg-neon-blue/10 flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+                  <BookOpen className="w-6 h-6 text-neon-blue" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-bold text-white group-hover:text-neon-blue transition-colors">{article.title}</h3>
+                    <span className="text-[10px] font-mono text-neon-green bg-neon-green/10 px-2 py-0.5 rounded border border-neon-green/30">{article.date}</span>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">{article.summary}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono text-gray-500 italic">Platform: {article.platform}</span>
+                    {article.url && (
+                      <a href={article.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-neon-blue hover:text-white transition-colors">
+                        {lang === 'en' ? 'Read Article' : 'اقرأ المقال'} <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
       {/* ── Certificates ── */}
       <motion.section id="certificates" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-6xl mx-auto px-4 w-full">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-purple-400 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]">{data.certificates.title}</h2>
@@ -480,6 +557,14 @@ const Home = () => {
       <footer className="text-center text-gray-500 font-mono text-sm">
         <p>© {new Date().getFullYear()} {data.hero.name}. System Online.</p>
       </footer>
+
+      <button
+        onClick={scrollToTop}
+        className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
+        aria-label="Back to top"
+      >
+        <ArrowUp size={24} />
+      </button>
 
     </div>
   );

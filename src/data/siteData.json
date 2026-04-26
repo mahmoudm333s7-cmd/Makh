@@ -43,6 +43,14 @@
       "title": "Current Learning",
       "items": ["Python for Data Analysis", "Machine Learning Basics"]
     },
+    "languages": {
+      "title": "Languages & Proficiency",
+      "items": [
+        { "name": "Arabic", "level": "Native", "proficiency": 100, "flag": "🇪🇬" },
+        { "name": "English", "level": "B1 (In Progress)", "proficiency": 55, "flag": "🇬🇧" },
+        { "name": "German", "level": "Beginner / Target", "proficiency": 15, "flag": "🇩🇪" }
+      ]
+    },
     "capabilities": {
       "title": "Core Capabilities",
       "items": [
@@ -89,37 +97,48 @@
           "id": "tools",
           "title": "Tools & Technologies",
           "items": [
-            { "name": "Python", "level": "Learning" },
-            { "name": "R", "level": "Learning" },
-            { "name": "Excel", "level": "Practical Experience" },
-            { "name": "PowerPoint", "level": "Practical Experience" }
+            { "name": "Python", "level": "Learning", "proficiency": 25 },
+            { "name": "R", "level": "Learning", "proficiency": 20 },
+            { "name": "Excel", "level": "Practical Experience", "proficiency": 70 },
+            { "name": "PowerPoint", "level": "Practical Experience", "proficiency": 80 },
+            { "name": "Canva", "level": "Practical Experience", "proficiency": 75 },
+            { "name": "ClickUp", "level": "Practical Experience", "proficiency": 65 }
           ]
         },
         {
           "id": "wetLab",
           "title": "Wet Lab Skills",
           "items": [
-            { "name": "PCR & Gel Electrophoresis", "level": "Practical Experience" },
-            { "name": "DNA Extraction", "level": "Practical Experience" },
-            { "name": "Cell Culture", "level": "Learning" },
-            { "name": "Lab Safety Protocols", "level": "Applied in Projects" }
+            { "name": "PCR & Gel Electrophoresis", "level": "Practical Experience", "proficiency": 70 },
+            { "name": "DNA Extraction", "level": "Practical Experience", "proficiency": 70 },
+            { "name": "Cell Culture", "level": "Learning", "proficiency": 30 },
+            { "name": "Lab Safety Protocols", "level": "Applied in Projects", "proficiency": 85 }
+          ]
+        },
+        {
+          "id": "bioinformatics",
+          "title": "Bioinformatics & Data",
+          "items": [
+            { "name": "Google Data Analytics", "level": "In Progress", "proficiency": 35 },
+            { "name": "Data Entry & Cleaning", "level": "Practical Experience", "proficiency": 60 },
+            { "name": "Scientific Literature Review", "level": "Applied in Projects", "proficiency": 75 }
           ]
         },
         {
           "id": "soft",
           "title": "Soft & Scientific Skills",
           "items": [
-            { "name": "Communication Skills", "level": "Practical Experience" },
-            { "name": "Leadership", "level": "Practical Experience" },
-            { "name": "Collaboration", "level": "Applied in Projects" },
-            { "name": "Critical Thinking", "level": "Applied in Projects" },
-            { "name": "Creativity & Innovation", "level": "Learning" },
-            { "name": "Presentation Skills", "level": "Applied in Projects" },
-            { "name": "Adaptability", "level": "Practical Experience" },
-            { "name": "Time Management", "level": "Practical Experience" },
-            { "name": "Problem Solving", "level": "Applied in Projects" },
-            { "name": "Resilience & Perseverance", "level": "Applied in Projects" },
-            { "name": "Teamwork", "level": "Applied in Projects" }
+            { "name": "Communication Skills", "level": "Practical Experience", "proficiency": 80 },
+            { "name": "Leadership", "level": "Practical Experience", "proficiency": 75 },
+            { "name": "Collaboration", "level": "Applied in Projects", "proficiency": 85 },
+            { "name": "Critical Thinking", "level": "Applied in Projects", "proficiency": 80 },
+            { "name": "Creativity & Innovation", "level": "Learning", "proficiency": 70 },
+            { "name": "Presentation Skills", "level": "Applied in Projects", "proficiency": 80 },
+            { "name": "Adaptability", "level": "Practical Experience", "proficiency": 78 },
+            { "name": "Time Management", "level": "Practical Experience", "proficiency": 72 },
+            { "name": "Problem Solving", "level": "Applied in Projects", "proficiency": 75 },
+            { "name": "Resilience & Perseverance", "level": "Applied in Projects", "proficiency": 82 },
+            { "name": "Teamwork", "level": "Applied in Projects", "proficiency": 85 }
           ]
         }
       ]
@@ -195,18 +214,31 @@
         }
       ]
     },
+    "articles": {
+      "title": "Science Communication",
+      "items": [
+        {
+          "title": "CRISPR-Cas9: From Lab to Clinic",
+          "platform": "LinkedIn",
+          "date": "2025",
+          "url": "https://www.linkedin.com/in/mahmoud-khalaf-allah-576b5b358",
+          "lang": "ar",
+          "summary": "A rigorous post covering the molecular mechanism of CRISPR-Cas9 and its journey from laboratory research to clinical reality."
+        }
+      ]
+    },
     "certificates": {
       "title": "Certificates & Achievements",
       "items": [
         {
           "title": "AI Fluency Certificate",
-          "issuer": "Dubai Future Foundation",
+          "issuer": "Anthropic",
           "date": "2024",
           "fileUrl": "/certificates/Ai fluency.png"
         },
         {
           "title": "Claude 101 Certificate",
-          "issuer": "Future Foundation",
+          "issuer": "Anthropic",
           "date": "2024",
           "fileUrl": "/certificates/claude101.png"
         },
@@ -215,12 +247,19 @@
           "issuer": "Dubai Future Foundation",
           "date": "2024",
           "fileUrl": "/certificates/مؤسسة دبي للمستقبل.pdf"
+        },
+        {
+          "title": "Google Data Analytics Professional Certificate",
+          "issuer": "Google / Coursera",
+          "date": "2025 – In Progress",
+          "status": "in_progress",
+          "fileUrl": ""
         }
       ]
     },
     "contact": {
       "title": "Contact Protocol",
-      "academicEmail": "mahmoud.khalafallah@sci.svu.edu.eg",
+      "academicEmail": "Mahmoud_M_Kh_Mohamed@sci.svu.edu.eg",
       "social": [
         { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/mahmoud-khalaf-allah-576b5b358" },
         { "platform": "GitHub", "url": "https://github.com/MahmoudKhalafAllah" },
@@ -275,6 +314,14 @@
       "title": "ما أتعلمه حالياً",
       "items": ["بايثون لتحليل البيانات", "أساسيات التعلم الآلي (Machine Learning)"]
     },
+    "languages": {
+      "title": "اللغات والكفاءة",
+      "items": [
+        { "name": "العربية", "level": "اللغة الأم", "proficiency": 100, "flag": "🇪🇬" },
+        { "name": "الإنجليزية", "level": "B1 (قيد التطوير)", "proficiency": 55, "flag": "🇬🇧" },
+        { "name": "الألمانية", "level": "مبتدئ / مستهدف", "proficiency": 15, "flag": "🇩🇪" }
+      ]
+    },
     "capabilities": {
       "title": "القدرات العملية",
       "items": [
@@ -321,37 +368,48 @@
           "id": "tools",
           "title": "الأدوات والتقنيات",
           "items": [
-            { "name": "بايثون (Python)", "level": "طور التعلم" },
-            { "name": "لغة R", "level": "طور التعلم" },
-            { "name": "إكسل (Excel)", "level": "خبرة عملية" },
-            { "name": "باوربوينت (PowerPoint)", "level": "خبرة عملية" }
+            { "name": "بايثون (Python)", "level": "طور التعلم", "proficiency": 25 },
+            { "name": "لغة R", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "إكسل (Excel)", "level": "خبرة عملية", "proficiency": 70 },
+            { "name": "باوربوينت", "level": "خبرة عملية", "proficiency": 80 },
+            { "name": "كانفا (Canva)", "level": "خبرة عملية", "proficiency": 75 },
+            { "name": "كليك أب (ClickUp)", "level": "خبرة عملية", "proficiency": 65 }
           ]
         },
         {
           "id": "wetLab",
           "title": "مهارات المختبر الرطب",
           "items": [
-            { "name": "تفاعل البوليميراز المتسلسل (PCR)", "level": "خبرة عملية" },
-            { "name": "استخلاص الحمض النووي", "level": "خبرة عملية" },
-            { "name": "زراعة الخلايا", "level": "طور التعلم" },
-            { "name": "بروتوكولات سلامة المختبر", "level": "مُطبَّقة في مشاريع" }
+            { "name": "تفاعل البوليميراز المتسلسل (PCR)", "level": "خبرة عملية", "proficiency": 70 },
+            { "name": "استخلاص الحمض النووي", "level": "خبرة عملية", "proficiency": 70 },
+            { "name": "زراعة الخلايا", "level": "طور التعلم", "proficiency": 30 },
+            { "name": "بروتوكولات سلامة المختبر", "level": "مُطبَّقة في مشاريع", "proficiency": 85 }
+          ]
+        },
+        {
+          "id": "bioinformatics",
+          "title": "المعلوماتية الحيوية وتحليل البيانات",
+          "items": [
+            { "name": "Google Data Analytics", "level": "قيد الإنجاز", "proficiency": 35 },
+            { "name": "إدخال البيانات وتنظيفها", "level": "خبرة عملية", "proficiency": 60 },
+            { "name": "مراجعة الأدبيات العلمية", "level": "مُطبَّقة في مشاريع", "proficiency": 75 }
           ]
         },
         {
           "id": "soft",
           "title": "المهارات الشخصية والعلمية",
           "items": [
-            { "name": "مهارات التواصل (Communication Skills)", "level": "خبرة عملية" },
-            { "name": "القيادة (Leadership)", "level": "خبرة عملية" },
-            { "name": "التعاون (Collaboration)", "level": "مُطبَّقة في مشاريع" },
-            { "name": "التفكير النقدي (Critical Thinking)", "level": "مُطبَّقة في مشاريع" },
-            { "name": "الإبداع والابتكار (Creativity & Innovation)", "level": "طور التعلم" },
-            { "name": "مهارات العرض (Presentation Skills)", "level": "مُطبَّقة في مشاريع" },
-            { "name": "القدرة على التكيف (Adaptability)", "level": "خبرة عملية" },
-            { "name": "إدارة الوقت (Time Management)", "level": "خبرة عملية" },
-            { "name": "حل المشكلات (Problem Solving)", "level": "مُطبَّقة في مشاريع" },
-            { "name": "المرونة والمثابرة (Resilience & Perseverance)", "level": "مُطبَّقة في مشاريع" },
-            { "name": "العمل الجماعي (Teamwork)", "level": "مُطبَّقة في مشاريع" }
+            { "name": "مهارات التواصل", "level": "خبرة عملية", "proficiency": 80 },
+            { "name": "القيادة", "level": "خبرة عملية", "proficiency": 75 },
+            { "name": "التعاون", "level": "مُطبَّقة في مشاريع", "proficiency": 85 },
+            { "name": "التفكير النقدي", "level": "مُطبَّقة في مشاريع", "proficiency": 80 },
+            { "name": "الإبداع والابتكار", "level": "طور التعلم", "proficiency": 70 },
+            { "name": "مهارات العرض", "level": "مُطبَّقة في مشاريع", "proficiency": 80 },
+            { "name": "القدرة على التكيف", "level": "خبرة عملية", "proficiency": 78 },
+            { "name": "إدارة الوقت", "level": "خبرة عملية", "proficiency": 72 },
+            { "name": "حل المشكلات", "level": "مُطبَّقة في مشاريع", "proficiency": 75 },
+            { "name": "المرونة والمثابرة", "level": "مُطبَّقة في مشاريع", "proficiency": 82 },
+            { "name": "العمل الجماعي", "level": "مُطبَّقة في مشاريع", "proficiency": 85 }
           ]
         }
       ]
@@ -427,18 +485,31 @@
         }
       ]
     },
+    "articles": {
+      "title": "التواصل العلمي",
+      "items": [
+        {
+          "title": "كريسبر-كاس9: من المختبر إلى العيادة",
+          "platform": "LinkedIn",
+          "date": "2025",
+          "url": "https://www.linkedin.com/in/mahmoud-khalaf-allah-576b5b358",
+          "lang": "ar",
+          "summary": "منشور علمي رصين يغطي الآلية الجزيئية لـ CRISPR-Cas9 ورحلتها من الأبحاث المعملية إلى الواقع السريري."
+        }
+      ]
+    },
     "certificates": {
       "title": "الشهادات والإنجازات",
       "items": [
         {
           "title": "شهادة طلاقة الذكاء الاصطناعي",
-          "issuer": "مؤسسة دبي للمستقبل",
+          "issuer": "Anthropic",
           "date": "2024",
           "fileUrl": "/certificates/Ai fluency.png"
         },
         {
           "title": "شهادة كلاود 101",
-          "issuer": "مؤسسة المستقبل",
+          "issuer": "Anthropic",
           "date": "2024",
           "fileUrl": "/certificates/claude101.png"
         },
@@ -447,12 +518,19 @@
           "issuer": "مؤسسة دبي للمستقبل",
           "date": "2024",
           "fileUrl": "/certificates/مؤسسة دبي للمستقبل.pdf"
+        },
+        {
+          "title": "شهادة Google Data Analytics الاحترافية",
+          "issuer": "Google / Coursera",
+          "date": "2025 – قيد الإنجاز",
+          "status": "in_progress",
+          "fileUrl": ""
         }
       ]
     },
     "contact": {
       "title": "بروتوكول التواصل",
-      "academicEmail": "mahmoud.khalafallah@sci.svu.edu.eg",
+      "academicEmail": "Mahmoud_M_Kh_Mohamed@sci.svu.edu.eg",
       "social": [
         { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/mahmoud-khalaf-allah-576b5b358" },
         { "platform": "GitHub", "url": "https://github.com/MahmoudKhalafAllah" },
