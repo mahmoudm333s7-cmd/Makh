@@ -59,6 +59,18 @@ const getCatColor = (id) => {
   }
 };
 
+const getCatBarColor = (id) => {
+  const colors = {
+    tools: 'bg-neon-blue',
+    wetLab: 'bg-neon-green',
+    bioinformatics: 'bg-amber-400',
+    aiAutomation: 'bg-cyan-400',
+    businessCreative: 'bg-pink-400',
+    soft: 'bg-purple-400',
+  };
+  return colors[id] || 'bg-gray-300';
+};
+
 const getCatSurface = (id) => {
   const colors = {
     tools: 'border-neon-blue/25 bg-neon-blue/[0.035]',
@@ -344,7 +356,7 @@ const Home = () => {
                                 whileInView={{ width: `${skill.proficiency}%` }}
                                 transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
                                 viewport={{ once: true }}
-                                className={`skill-bar-fill ${getCatColor(cat.id).replace('text-', 'bg-')}`}
+                                className={`skill-bar-fill ${getCatBarColor(cat.id)}`}
                                 style={{ '--bar-width': `${skill.proficiency}%` }}
                               />
                             </div>
