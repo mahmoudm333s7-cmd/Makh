@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Dna } from 'lucide-react';
 import { AppProvider, useAppContext } from './context/AppContext';
 import Navbar from './components/Navbar';
 
@@ -10,12 +11,20 @@ function LoadingFallback() {
   const { lang } = useAppContext();
 
   return (
-    <div role="status" className="flex items-center justify-center h-[80vh] px-6">
-      <div className="flex flex-col items-center gap-5 text-gray-400">
-        <div className="w-10 h-10 border-2 border-white/10 border-t-neon-blue rounded-full animate-spin" />
-        <span className="text-sm tracking-wide">
-          {lang === 'ar' ? 'جارٍ تحميل الموقع…' : 'Loading your portfolio…'}
+    <div role="status" className="portfolio-loading min-h-[75vh] px-6">
+      <div className="flex flex-col items-center">
+        <div className="loader-emblem mb-6" aria-hidden="true">
+          <span className="loader-ring loader-ring-outer" />
+          <span className="loader-ring loader-ring-inner" />
+          <Dna className="loader-glyph" />
+        </div>
+        <div className="loader-brand font-heading font-bold tracking-[0.28em] text-lg">
+          <span>BIO</span><span>PORT</span>
+        </div>
+        <span className="mt-3 text-sm text-gray-400 tracking-wide">
+          {lang === 'ar' ? 'جارٍ تجهيز ملفك الأكاديمي…' : 'Preparing your academic portfolio…'}
         </span>
+        <div className="loader-track mt-7" aria-hidden="true"><span className="loader-progress" /></div>
       </div>
     </div>
   );

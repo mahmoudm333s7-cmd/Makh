@@ -14,37 +14,123 @@
   }
 }
 
-.section-collapse-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
-  min-height: 1.75rem;
-  margin-bottom: 0.75rem;
-  color: #94a3b8;
-  font-size: 0.875rem;
-  position: relative;
-  z-index: 2;
-}
-
-.section-collapse-row > span {
-  display: none;
-}
-
-.section-collapsed > .section-collapse-row > span {
-  display: inline;
-}
-
 .section-collapse-control {
   display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
   border-radius: 9999px;
+  border-width: 1px;
+  box-shadow: 0 0 12px currentColor;
+  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
-.section-collapsed > :not(.section-collapse-row) {
+.section-collapse-control:hover {
+  transform: translateY(-1px) scale(1.04);
+}
+
+.section-collapse-control:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.section-collapsed .section-title-row {
+  margin-bottom: 0 !important;
+}
+
+.section-collapsed .section-content {
   display: none !important;
+}
+
+.portfolio-loading {
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.055), transparent 55%);
+}
+
+.loader-emblem {
+  position: relative;
+  width: 5.5rem;
+  height: 5.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+
+.loader-ring-outer {
+  border-top-color: #00d4ff;
+  border-right-color: rgba(0, 212, 255, 0.18);
+  animation: loaderOrbit 2.4s linear infinite;
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.12);
+}
+
+.loader-ring-inner {
+  inset: 0.55rem;
+  border-bottom-color: #39ff14;
+  border-left-color: rgba(57, 255, 20, 0.18);
+  animation: loaderOrbit 1.8s linear infinite reverse;
+}
+
+.loader-glyph {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: #b6f7ff;
+  animation: loaderPulse 1.8s ease-in-out infinite;
+}
+
+.loader-brand span:first-child {
+  color: #f3f4f6;
+}
+
+.loader-brand span:last-child {
+  color: #00d4ff;
+}
+
+.loader-track {
+  width: 11rem;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.loader-progress {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00d4ff, #39ff14);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+  animation: loaderProgress 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.72; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes loaderProgress {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(260%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-ring,
+  .loader-glyph,
+  .loader-progress {
+    animation-duration: 8s;
+  }
 }
 
 /* ── Dark Mode (Default) ── */

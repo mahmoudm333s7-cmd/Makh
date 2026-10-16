@@ -8,7 +8,8 @@ import {
   Database, Send, FileText, ChevronDown, BookOpen,
   Users, Award, GraduationCap, Target,
   Linkedin, Github, Globe, Mail, BookMarked,
-  Brain, Lightbulb, Compass, Zap, ClipboardList, ArrowUp, ChevronUp
+  Brain, Bot, Palette, BarChart3, Lightbulb,
+  Compass, Zap, ClipboardList, ArrowUp
 } from 'lucide-react';
 
 const sec = {
@@ -38,6 +39,9 @@ const getIcon = (id) => {
   switch (id) {
     case 'tools': return <Database className="w-5 h-5" />;
     case 'wetLab': return <TestTube className="w-5 h-5" />;
+    case 'bioinformatics': return <BarChart3 className="w-5 h-5" />;
+    case 'aiAutomation': return <Bot className="w-5 h-5" />;
+    case 'businessCreative': return <Palette className="w-5 h-5" />;
     case 'soft': return <Users className="w-5 h-5" />;
     default: return <Brain className="w-5 h-5" />;
   }
@@ -47,23 +51,49 @@ const getCatColor = (id) => {
   switch (id) {
     case 'tools': return 'text-neon-blue';
     case 'wetLab': return 'text-neon-green';
+    case 'bioinformatics': return 'text-amber-400';
+    case 'aiAutomation': return 'text-cyan-400';
+    case 'businessCreative': return 'text-pink-400';
     case 'soft': return 'text-purple-400';
-    default: return 'text-neon-blue';
+    default: return 'text-gray-300';
   }
 };
 
-const sectionTitleClasses = {
-  home: 'text-xl md:text-2xl font-heading font-bold text-white',
-  about: 'text-3xl md:text-4xl font-heading font-bold text-white',
-  experience: 'text-2xl md:text-3xl font-heading font-bold text-white',
-  skills: 'text-3xl md:text-4xl font-heading font-bold text-white',
-  goals: 'text-2xl md:text-3xl font-heading font-bold text-purple-400',
-  projects: 'text-3xl md:text-4xl font-heading font-bold neon-text-blue',
-  reports: 'text-3xl md:text-4xl font-heading font-bold text-white',
-  publications: 'text-3xl md:text-4xl font-heading font-bold text-white',
-  articles: 'text-3xl md:text-4xl font-heading font-bold text-white',
-  certificates: 'text-3xl md:text-4xl font-heading font-bold text-purple-400',
-  contact: 'text-3xl font-heading font-bold neon-text-green',
+const getCatSurface = (id) => {
+  const colors = {
+    tools: 'border-neon-blue/25 bg-neon-blue/[0.035]',
+    wetLab: 'border-neon-green/25 bg-neon-green/[0.035]',
+    bioinformatics: 'border-amber-400/25 bg-amber-400/[0.035]',
+    aiAutomation: 'border-cyan-400/25 bg-cyan-400/[0.035]',
+    businessCreative: 'border-pink-400/25 bg-pink-400/[0.035]',
+    soft: 'border-purple-400/25 bg-purple-400/[0.035]',
+  };
+  return colors[id] || 'border-white/10';
+};
+
+const getCatHighlight = (id) => {
+  const colors = {
+    tools: 'bg-neon-blue/10',
+    wetLab: 'bg-neon-green/10',
+    bioinformatics: 'bg-amber-400/10',
+    aiAutomation: 'bg-cyan-400/10',
+    businessCreative: 'bg-pink-400/10',
+    soft: 'bg-purple-400/10',
+  };
+  return colors[id] || 'bg-white/5';
+};
+
+const sectionToggleStyles = {
+  about: 'border-neon-blue/60 bg-neon-blue/10 text-neon-blue hover:bg-neon-blue hover:text-background hover:shadow-neon-blue',
+  experience: 'border-neon-green/60 bg-neon-green/10 text-neon-green hover:bg-neon-green hover:text-background hover:shadow-neon-green',
+  skills: 'border-purple-400/60 bg-purple-400/10 text-purple-400 hover:bg-purple-400 hover:text-background hover:shadow-[0_0_16px_rgba(192,132,252,0.55)]',
+  goals: 'border-purple-400/60 bg-purple-400/10 text-purple-400 hover:bg-purple-400 hover:text-background hover:shadow-[0_0_16px_rgba(192,132,252,0.55)]',
+  projects: 'border-neon-blue/60 bg-neon-blue/10 text-neon-blue hover:bg-neon-blue hover:text-background hover:shadow-neon-blue',
+  reports: 'border-neon-green/60 bg-neon-green/10 text-neon-green hover:bg-neon-green hover:text-background hover:shadow-neon-green',
+  publications: 'border-purple-400/60 bg-purple-400/10 text-purple-400 hover:bg-purple-400 hover:text-background hover:shadow-[0_0_16px_rgba(192,132,252,0.55)]',
+  articles: 'border-neon-blue/60 bg-neon-blue/10 text-neon-blue hover:bg-neon-blue hover:text-background hover:shadow-neon-blue',
+  certificates: 'border-purple-400/60 bg-purple-400/10 text-purple-400 hover:bg-purple-400 hover:text-background hover:shadow-[0_0_16px_rgba(192,132,252,0.55)]',
+  contact: 'border-neon-green/60 bg-neon-green/10 text-neon-green hover:bg-neon-green hover:text-background hover:shadow-neon-green',
 };
 
 const Home = () => {
@@ -78,20 +108,23 @@ const Home = () => {
     setCollapsedSections((sections) => ({ ...sections, [sectionId]: !sections[sectionId] }));
   };
 
+  const toggleSkillCategory = (categoryId) => {
+    setActiveCategory((currentCategory) => currentCategory === categoryId ? null : categoryId);
+  };
+
   const sectionToggle = (sectionId, label) => (
-    <>
-      <span className={sectionTitleClasses[sectionId]}>{label}</span>
-      <button
-        type="button"
-        onClick={() => toggleSection(sectionId)}
-        aria-expanded={!collapsedSections[sectionId]}
-        aria-label={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
-        title={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
-        className="section-collapse-control text-gray-400 hover:text-neon-blue transition-colors shrink-0"
-      >
-        {collapsedSections[sectionId] ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
-      </button>
-    </>
+    <button
+      type="button"
+      onClick={() => toggleSection(sectionId)}
+      aria-expanded={!collapsedSections[sectionId]}
+      aria-label={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
+      title={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
+      className={`section-collapse-control ${sectionToggleStyles[sectionId]} shrink-0`}
+    >
+      <motion.span animate={{ rotate: collapsedSections[sectionId] ? 0 : 180 }} transition={{ duration: 0.2 }}>
+        <ChevronDown size={17} strokeWidth={2.5} />
+      </motion.span>
+    </button>
   );
 
   useEffect(() => {
@@ -135,8 +168,7 @@ const Home = () => {
     <div className="flex flex-col gap-16 md:gap-28 pb-32 overflow-x-hidden">
 
       {/* ── Hero ── */}
-      <section id="home" className={`${collapsedSections.home ? 'min-h-fit' : 'min-h-[90vh] md:min-h-[80vh]'} flex flex-col justify-center items-center text-center px-6 relative overflow-hidden ${collapsedSections.home ? 'section-collapsed' : ''}`}>
-        <div className={`section-collapse-row z-10 ${collapsedSections.home ? '' : 'absolute top-4 right-6'}`}>{sectionToggle('home', lang === 'en' ? 'Introduction' : 'المقدمة')}</div>
+      <section id="home" className="min-h-[90vh] md:min-h-[80vh] flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-green/10 rounded-full blur-[120px] -z-10" />
         <motion.div initial="hidden" animate="visible" variants={sec} className="max-w-4xl z-10">
@@ -160,12 +192,12 @@ const Home = () => {
 
       {/* ── About & Interests ── */}
       <motion.section id="about" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.about ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('about', data.about.title)}</div>
-        <div className="flex items-center gap-4 mb-12">
+        <div className="section-title-row flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.about.title}</h2>
+          {sectionToggle('about', data.about.title)}
           <div className="h-px bg-neon-blue flex-grow opacity-50" />
         </div>
-        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+        <div className="section-content grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <motion.div variants={child} className="text-gray-300 leading-relaxed text-lg flex flex-col gap-6">
             <p className="text-base md:text-lg text-white">{data.about.content}</p>
             <div className="glass-panel p-6 border-l-4 border-l-neon-green bg-neon-green/5 italic text-gray-300">
@@ -218,15 +250,15 @@ const Home = () => {
 
       {/* ── Education & Experience ── */}
       <motion.section id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.experience ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('experience', lang === 'en' ? 'Education & Experience' : 'التعليم والخبرة')}</div>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Education */}
           <div>
-            <div className="flex items-center gap-4 mb-8">
+            <div className="section-title-row flex items-center gap-4 mb-8">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-white">{data.education.title}</h2>
+              {sectionToggle('experience', data.education.title)}
               <div className="h-px bg-neon-green flex-grow opacity-50" />
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="section-content flex flex-col gap-6">
               {data.education.items.map((ed, i) => (
                 <div key={i} className="glass-panel p-6 border-neon-green/20 hover:border-neon-green/50 transition-all duration-300">
                   <GraduationCap className="w-8 h-8 text-neon-green mb-4" />
@@ -248,7 +280,7 @@ const Home = () => {
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-white">{data.experience.title}</h2>
               <div className="h-px bg-neon-blue flex-grow opacity-50" />
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="section-content flex flex-col gap-6">
               {data.experience.items.map((ex, i) => (
                 <div key={i} className="glass-panel p-6 border-neon-blue/20 hover:border-neon-blue/50 transition-all duration-300">
                   <TestTube className="w-8 h-8 text-neon-blue mb-4" />
@@ -265,21 +297,21 @@ const Home = () => {
 
       {/* ── Skills & Learning ── */}
       <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.skills ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('skills', data.skills.title)}</div>
-        <div className="flex items-center gap-4 mb-12">
+        <div className="section-title-row flex items-center gap-4 mb-12">
           <div className="h-px bg-purple-400 flex-grow opacity-50" />
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.skills.title}</h2>
+          {sectionToggle('skills', data.skills.title)}
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="section-content grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 flex flex-col gap-4">
             {data.skills.categories.map((cat) => (
-              <div key={cat.id} id={`skill-category-${cat.id}`} className="glass-panel overflow-hidden border-white/5">
+              <div key={cat.id} id={`skill-category-${cat.id}`} className={`glass-panel overflow-hidden border ${getCatSurface(cat.id)}`}>
                 <button
-                  onClick={() => setActiveCategory(activeCategory === cat.id ? null : cat.id)}
+                  onClick={() => toggleSkillCategory(cat.id)}
                   aria-expanded={activeCategory === cat.id}
                   aria-controls={`skill-category-${cat.id}`}
-                  className={`w-full px-6 py-5 flex items-center justify-between transition-colors ${activeCategory === cat.id ? 'bg-white/5' : 'hover:bg-white/5'}`}
+                  className={`w-full px-6 py-5 flex items-center justify-between transition-colors ${activeCategory === cat.id ? getCatHighlight(cat.id) : 'hover:bg-white/5'}`}
                 >
                   <div className={`flex items-center gap-4 font-bold text-lg ${getCatColor(cat.id)}`}>
                     {getIcon(cat.id)}
@@ -357,15 +389,14 @@ const Home = () => {
 
       {/* ── Goals ── */}
       <motion.section id="goals" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sec} className={`max-w-4xl mx-auto px-4 w-full ${collapsedSections.goals ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('goals', data.goals.title)}</div>
         <motion.div variants={child} className="glass-panel p-8 md:p-10 border-purple-500/30 relative overflow-hidden flex flex-col md:flex-row gap-8 items-center">
-          <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl" />
-          <div className="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/30">
+          <div className="section-content absolute -top-16 -right-16 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="section-content w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/30">
             <Target className="w-10 h-10 text-purple-400" />
           </div>
           <div>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-purple-400 mb-4">{data.goals.title}</h2>
-            <ul className="space-y-3">
+            <h2 className="section-title-row text-2xl md:text-3xl font-heading font-bold text-purple-400 mb-4 flex items-center gap-3">{data.goals.title}{sectionToggle('goals', data.goals.title)}</h2>
+            <ul className="section-content space-y-3">
               {data.goals.items.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-300">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 text-xs font-bold border border-purple-500/30">
@@ -381,9 +412,11 @@ const Home = () => {
 
       {/* ── Projects ── */}
       <motion.section id="projects" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-6xl mx-auto px-4 w-full ${collapsedSections.projects ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('projects', data.projects.title)}</div>
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 neon-text-blue">{data.projects.title}</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="section-title-row flex items-center justify-center gap-4 mb-16">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold neon-text-blue">{data.projects.title}</h2>
+          {sectionToggle('projects', data.projects.title)}
+        </div>
+        <div className="section-content grid md:grid-cols-2 gap-8">
           {data.projects.items.map((proj, i) => (
             <motion.div key={i} variants={child} className="glass-panel p-8 hover:-translate-y-1 transition-all duration-300 group border-neon-blue/20 hover:border-neon-blue/50 flex flex-col h-full bg-surface/60">
               <div className="flex justify-between items-start mb-6">
@@ -426,12 +459,12 @@ const Home = () => {
 
       {/* ── Reports ── */}
       <motion.section id="reports" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.reports ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('reports', data.reports.title)}</div>
-        <div className="flex items-center gap-4 mb-12">
+        <div className="section-title-row flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.reports.title}</h2>
+          {sectionToggle('reports', data.reports.title)}
           <div className="h-px bg-neon-green flex-grow opacity-50" />
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="section-content grid md:grid-cols-2 gap-6">
           {data.reports.items.map((report, i) => (
             <motion.div key={i} variants={child} className="glass-panel p-6 border-neon-green/20 hover:border-neon-green/50 transition-all duration-300 group flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-neon-green/10 flex items-center justify-center shrink-0">
@@ -451,12 +484,12 @@ const Home = () => {
 
       {/* ── Publications ── */}
       <motion.section id="publications" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-4xl mx-auto px-4 w-full ${collapsedSections.publications ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('publications', data.publications.title)}</div>
-        <div className="flex items-center gap-4 mb-12">
+        <div className="section-title-row flex items-center gap-4 mb-12">
           <div className="h-px bg-purple-400 flex-grow opacity-50" />
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.publications.title}</h2>
+          {sectionToggle('publications', data.publications.title)}
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="section-content flex flex-col gap-6">
           {data.publications.items.map((pub, i) => (
             <motion.div key={i} variants={child} className="glass-panel p-6 border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group">
               <div className="flex items-start gap-5">
@@ -483,12 +516,12 @@ const Home = () => {
 
       {/* ── Science Communication (Articles) ── */}
       <motion.section id="articles" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-4xl mx-auto px-4 w-full ${collapsedSections.articles ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('articles', data.articles.title)}</div>
-        <div className="flex items-center gap-4 mb-12">
+        <div className="section-title-row flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.articles.title}</h2>
+          {sectionToggle('articles', data.articles.title)}
           <div className="h-px bg-neon-blue flex-grow opacity-50" />
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="section-content flex flex-col gap-6">
           {data.articles.items.map((article, i) => (
             <motion.div key={i} variants={child} className="glass-panel p-6 border-neon-blue/20 hover:border-neon-blue/50 transition-all duration-300 group bg-surface/40">
               <div className="flex items-start gap-5">
@@ -518,9 +551,11 @@ const Home = () => {
 
       {/* ── Certificates ── */}
       <motion.section id="certificates" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-6xl mx-auto px-4 w-full ${collapsedSections.certificates ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('certificates', data.certificates.title)}</div>
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-purple-400 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]">{data.certificates.title}</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="section-title-row flex items-center justify-center gap-4 mb-16">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-purple-400 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]">{data.certificates.title}</h2>
+          {sectionToggle('certificates', data.certificates.title)}
+        </div>
+        <div className="section-content grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.certificates.items.map((cert, i) => (
             <motion.div key={i} variants={child} className="glass-panel p-6 border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group flex flex-col items-center text-center hover:shadow-[0_0_20px_rgba(192,132,252,0.15)]">
               <div className="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -546,11 +581,11 @@ const Home = () => {
 
       {/* ── Contact ── */}
       <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-3xl mx-auto px-4 w-full ${collapsedSections.contact ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row">{sectionToggle('contact', data.contact.title)}</div>
         <div className="glass-panel p-8 md:p-12 border-neon-green/20 relative overflow-hidden">
           <div className="absolute -top-24 -right-24 w-48 h-48 bg-neon-green/20 rounded-full blur-3xl" />
-          <h2 className="text-3xl font-heading font-bold mb-4 text-center neon-text-green">{data.contact.title}</h2>
+          <h2 className="section-title-row text-3xl font-heading font-bold mb-4 text-center neon-text-green flex items-center justify-center gap-3">{data.contact.title}{sectionToggle('contact', data.contact.title)}</h2>
 
+          <div className="section-content">
           <div className="flex justify-center mb-6">
             <a href={`mailto:${data.contact.academicEmail}`} className="flex items-center gap-2 text-gray-300 hover:text-neon-green transition-colors font-mono text-sm">
               <Mail size={16} className="text-neon-green" /> {data.contact.academicEmail}
@@ -600,6 +635,7 @@ const Home = () => {
               {formStatus === 'submitting' ? '...' : data.contact.form.submit}
             </button>
           </form>
+          </div>
         </div>
       </motion.section>
 
