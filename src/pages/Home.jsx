@@ -52,6 +52,20 @@ const getCatColor = (id) => {
   }
 };
 
+const sectionTitleClasses = {
+  home: 'text-xl md:text-2xl font-heading font-bold text-white',
+  about: 'text-3xl md:text-4xl font-heading font-bold text-white',
+  experience: 'text-2xl md:text-3xl font-heading font-bold text-white',
+  skills: 'text-3xl md:text-4xl font-heading font-bold text-white',
+  goals: 'text-2xl md:text-3xl font-heading font-bold text-purple-400',
+  projects: 'text-3xl md:text-4xl font-heading font-bold neon-text-blue',
+  reports: 'text-3xl md:text-4xl font-heading font-bold text-white',
+  publications: 'text-3xl md:text-4xl font-heading font-bold text-white',
+  articles: 'text-3xl md:text-4xl font-heading font-bold text-white',
+  certificates: 'text-3xl md:text-4xl font-heading font-bold text-purple-400',
+  contact: 'text-3xl font-heading font-bold neon-text-green',
+};
+
 const Home = () => {
   const { lang } = useAppContext();
   const data = siteData[lang];
@@ -66,7 +80,7 @@ const Home = () => {
 
   const sectionToggle = (sectionId, label) => (
     <>
-      <span>{label}</span>
+      <span className={sectionTitleClasses[sectionId]}>{label}</span>
       <button
         type="button"
         onClick={() => toggleSection(sectionId)}
