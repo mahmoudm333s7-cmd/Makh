@@ -113,6 +113,7 @@ const Home = () => {
   const data = siteData[lang];
   const [activeCategory, setActiveCategory] = useState('tools');
   const [formStatus, setFormStatus] = useState('idle');
+  const [nextSubmissionAt, setNextSubmissionAt] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [collapsedSections, setCollapsedSections] = useState({});
 
@@ -153,11 +154,22 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (Date.now() < nextSubmissionAt) {
+      setFormStatus('cooldown');
+      return;
+    }
+
     setFormStatus('submitting');
     const formData = new FormData(e.target);
+
+    if (formData.get('_gotcha')) {
+      setFormStatus('success');
+      e.target.reset();
+      return;
+    }
     
     try {
-      // REPLACE 'YOUR_FORMSPREE_ID' WITH YOUR ACTUAL ID FROM FORMSPREE.IO
       const response = await fetch("https://formspree.io/f/xojyrkvd", {
         method: 'POST',
         body: formData,
@@ -166,6 +178,7 @@ const Home = () => {
       
       if (response.ok) {
         setFormStatus('success');
+        setNextSubmissionAt(Date.now() + 60_000);
         e.target.reset();
         setTimeout(() => setFormStatus('idle'), 5000);
       } else {
@@ -625,23 +638,28 @@ const Home = () => {
             {formStatus === 'error' && (
               <div className="bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded text-center font-bold">
                 {data.contact.form.errorMsg}
-                <div className="text-xs mt-1 opacity-80">(يجب إضافة كود Formspree الخاص بك في الكود لتعمل)</div>
+              </div>
+            )}
+            {formStatus === 'cooldown' && (
+              <div className="bg-amber-400/10 border border-amber-400/50 text-amber-300 px-4 py-3 rounded text-center font-bold">
+                {lang === 'ar' ? 'يرجى الانتظار دقيقة قبل إرسال رسالة أخرى.' : 'Please wait one minute before sending another message.'}
               </div>
             )}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">{data.contact.form.nameLabel}</label>
-                <input type="text" name="name" required className="w-full bg-surface/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:ring-1 focus:ring-neon-green transition-colors" />
+                <input type="text" name="name" required maxLength="100" autoComplete="name" className="w-full bg-surface/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:ring-1 focus:ring-neon-green transition-colors" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">{data.contact.form.emailLabel}</label>
-                <input type="email" name="email" required className="w-full bg-surface/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:ring-1 focus:ring-neon-green transition-colors" />
+                <input type="email" name="email" required maxLength="254" autoComplete="email" className="w-full bg-surface/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:ring-1 focus:ring-neon-green transition-colors" />
               </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-2">{data.contact.form.msgLabel}</label>
-              <textarea name="message" required rows="4" className="w-full bg-surface/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:ring-1 focus:ring-neon-green transition-colors" />
+              <textarea name="message" required rows="4" maxLength="4000" className="w-full bg-surface/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-green focus:ring-1 focus:ring-neon-green transition-colors" />
             </div>
+            <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="form-honeypot" />
             <button disabled={formStatus === 'submitting'} className="w-full bg-neon-green text-background font-bold py-4 rounded-lg hover:bg-white transition-colors flex items-center justify-center gap-2 hover:shadow-neon-green group disabled:opacity-50">
               <Send className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
               {formStatus === 'submitting' ? '...' : data.contact.form.submit}

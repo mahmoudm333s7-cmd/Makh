@@ -304,6 +304,14 @@ html.light .skill-bar-track {
   width: var(--bar-width);
 }
 
+.form-honeypot {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── Back to Top Button ── */
 .back-to-top {
   position: fixed;
