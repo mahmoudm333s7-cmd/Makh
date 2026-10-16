@@ -8,7 +8,7 @@ import {
   Database, Send, FileText, ChevronDown, BookOpen,
   Users, Award, GraduationCap, Target,
   Linkedin, Github, Globe, Mail, BookMarked,
-  Brain, Lightbulb, Compass, Zap, ClipboardList, ArrowUp
+  Brain, Lightbulb, Compass, Zap, ClipboardList, ArrowUp, ChevronUp
 } from 'lucide-react';
 
 const sec = {
@@ -24,6 +24,8 @@ const levelColor = (l) => {
   const map = {
     'Learning': 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',
     'طور التعلم': 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',
+    'Proficient': 'text-neon-green bg-neon-green/10 border-neon-green/30',
+    'متمكن': 'text-neon-green bg-neon-green/10 border-neon-green/30',
     'Practical Experience': 'text-blue-400 bg-blue-400/10 border-blue-400/30',
     'خبرة عملية': 'text-blue-400 bg-blue-400/10 border-blue-400/30',
     'Applied in Projects': 'text-neon-green bg-neon-green/10 border-neon-green/30',
@@ -56,6 +58,24 @@ const Home = () => {
   const [activeCategory, setActiveCategory] = useState('tools');
   const [formStatus, setFormStatus] = useState('idle');
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [collapsedSections, setCollapsedSections] = useState({});
+
+  const toggleSection = (sectionId) => {
+    setCollapsedSections((sections) => ({ ...sections, [sectionId]: !sections[sectionId] }));
+  };
+
+  const sectionToggle = (sectionId, label) => (
+    <button
+      type="button"
+      onClick={() => toggleSection(sectionId)}
+      aria-expanded={!collapsedSections[sectionId]}
+      aria-label={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
+      title={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
+      className="section-collapse-control text-gray-400 hover:text-neon-blue transition-colors shrink-0"
+    >
+      {collapsedSections[sectionId] ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
+    </button>
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,7 +118,8 @@ const Home = () => {
     <div className="flex flex-col gap-16 md:gap-28 pb-32 overflow-x-hidden">
 
       {/* ── Hero ── */}
-      <section id="home" className="min-h-[90vh] md:min-h-[80vh] flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+      <section id="home" className={`${collapsedSections.home ? 'min-h-fit' : 'min-h-[90vh] md:min-h-[80vh]'} flex flex-col justify-center items-center text-center px-6 relative overflow-hidden ${collapsedSections.home ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row absolute top-4 right-6 z-10">{sectionToggle('home', lang === 'en' ? 'Introduction' : 'المقدمة')}</div>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-green/10 rounded-full blur-[120px] -z-10" />
         <motion.div initial="hidden" animate="visible" variants={sec} className="max-w-4xl z-10">
@@ -121,7 +142,8 @@ const Home = () => {
       </section>
 
       {/* ── About & Interests ── */}
-      <motion.section id="about" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-5xl mx-auto px-4 w-full">
+      <motion.section id="about" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.about ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('about', data.about.title)}</div>
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.about.title}</h2>
           <div className="h-px bg-neon-blue flex-grow opacity-50" />
@@ -178,7 +200,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Education & Experience ── */}
-      <motion.section id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-5xl mx-auto px-4 w-full">
+      <motion.section id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.experience ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('experience', lang === 'en' ? 'Education & Experience' : 'التعليم والخبرة')}</div>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Education */}
           <div>
@@ -224,7 +247,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Skills & Learning ── */}
-      <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-5xl mx-auto px-4 w-full">
+      <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.skills ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('skills', data.skills.title)}</div>
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px bg-purple-400 flex-grow opacity-50" />
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.skills.title}</h2>
@@ -313,7 +337,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Goals ── */}
-      <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sec} className="max-w-4xl mx-auto px-4 w-full">
+      <motion.section id="goals" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sec} className={`max-w-4xl mx-auto px-4 w-full ${collapsedSections.goals ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('goals', data.goals.title)}</div>
         <motion.div variants={child} className="glass-panel p-8 md:p-10 border-purple-500/30 relative overflow-hidden flex flex-col md:flex-row gap-8 items-center">
           <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl" />
           <div className="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/30">
@@ -336,7 +361,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Projects ── */}
-      <motion.section id="projects" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-6xl mx-auto px-4 w-full">
+      <motion.section id="projects" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-6xl mx-auto px-4 w-full ${collapsedSections.projects ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('projects', data.projects.title)}</div>
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 neon-text-blue">{data.projects.title}</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {data.projects.items.map((proj, i) => (
@@ -380,7 +406,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Reports ── */}
-      <motion.section id="reports" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-5xl mx-auto px-4 w-full">
+      <motion.section id="reports" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-5xl mx-auto px-4 w-full ${collapsedSections.reports ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('reports', data.reports.title)}</div>
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.reports.title}</h2>
           <div className="h-px bg-neon-green flex-grow opacity-50" />
@@ -404,7 +431,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Publications ── */}
-      <motion.section id="publications" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-4xl mx-auto px-4 w-full">
+      <motion.section id="publications" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-4xl mx-auto px-4 w-full ${collapsedSections.publications ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('publications', data.publications.title)}</div>
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px bg-purple-400 flex-grow opacity-50" />
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.publications.title}</h2>
@@ -435,7 +463,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Science Communication (Articles) ── */}
-      <motion.section id="articles" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-4xl mx-auto px-4 w-full">
+      <motion.section id="articles" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-4xl mx-auto px-4 w-full ${collapsedSections.articles ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('articles', data.articles.title)}</div>
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">{data.articles.title}</h2>
           <div className="h-px bg-neon-blue flex-grow opacity-50" />
@@ -469,7 +498,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Certificates ── */}
-      <motion.section id="certificates" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-6xl mx-auto px-4 w-full">
+      <motion.section id="certificates" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-6xl mx-auto px-4 w-full ${collapsedSections.certificates ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('certificates', data.certificates.title)}</div>
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-purple-400 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]">{data.certificates.title}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.certificates.items.map((cert, i) => (
@@ -496,7 +526,8 @@ const Home = () => {
       </motion.section>
 
       {/* ── Contact ── */}
-      <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className="max-w-3xl mx-auto px-4 w-full">
+      <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sec} className={`max-w-3xl mx-auto px-4 w-full ${collapsedSections.contact ? 'section-collapsed' : ''}`}>
+        <div className="section-collapse-row">{sectionToggle('contact', data.contact.title)}</div>
         <div className="glass-panel p-8 md:p-12 border-neon-green/20 relative overflow-hidden">
           <div className="absolute -top-24 -right-24 w-48 h-48 bg-neon-green/20 rounded-full blur-3xl" />
           <h2 className="text-3xl font-heading font-bold mb-4 text-center neon-text-green">{data.contact.title}</h2>

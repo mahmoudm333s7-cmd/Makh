@@ -41,7 +41,7 @@
     },
     "learning": {
       "title": "Current Learning",
-      "items": ["Python for Data Analysis", "Machine Learning Basics"]
+      "items": ["Genomic Data Science", "Machine Learning Basics"]
     },
     "languages": {
       "title": "Languages & Proficiency",
@@ -62,9 +62,9 @@
     "goals": {
       "title": "Strategic Goals",
       "items": [
-        "Publish my first academic paper.",
-        "Master advanced bioinformatics tools and pipelines.",
-        "Apply for a Master's degree in Germany."
+        "Move from learning Python and R to completing my first real analytical project.",
+        "Maintain strong academic performance.",
+        "Establish my first entrepreneurship project and launch its MVP."
       ]
     },
     "experience": {
@@ -97,8 +97,13 @@
           "id": "tools",
           "title": "Tools & Technologies",
           "items": [
-            { "name": "Python", "level": "Learning", "proficiency": 25 },
-            { "name": "R", "level": "Learning", "proficiency": 20 },
+            { "name": "Python", "level": "Proficient", "proficiency": 100 },
+            { "name": "R", "level": "Learning", "proficiency": 60 },
+            { "name": "HTML", "level": "Learning", "proficiency": 25 },
+            { "name": "CSS", "level": "Learning", "proficiency": 25 },
+            { "name": "JavaScript", "level": "Learning", "proficiency": 20 },
+            { "name": "Java", "level": "Learning", "proficiency": 20 },
+            { "name": "MySQL", "level": "Learning", "proficiency": 20 },
             { "name": "Excel", "level": "Practical Experience", "proficiency": 70 },
             { "name": "PowerPoint", "level": "Practical Experience", "proficiency": 80 },
             { "name": "Canva", "level": "Practical Experience", "proficiency": 75 },
@@ -111,6 +116,7 @@
           "items": [
             { "name": "PCR & Gel Electrophoresis", "level": "Practical Experience", "proficiency": 70 },
             { "name": "DNA Extraction", "level": "Practical Experience", "proficiency": 70 },
+            { "name": "Genetic Engineering", "level": "Learning", "proficiency": 25 },
             { "name": "Cell Culture", "level": "Learning", "proficiency": 30 },
             { "name": "Lab Safety Protocols", "level": "Applied in Projects", "proficiency": 85 }
           ]
@@ -122,6 +128,24 @@
             { "name": "Google Data Analytics", "level": "In Progress", "proficiency": 35 },
             { "name": "Data Entry & Cleaning", "level": "Practical Experience", "proficiency": 60 },
             { "name": "Scientific Literature Review", "level": "Applied in Projects", "proficiency": 75 }
+          ]
+        },
+        {
+          "id": "aiAutomation",
+          "title": "AI & Automation",
+          "items": [
+            { "name": "Building AI Agents", "level": "Learning", "proficiency": 20 },
+            { "name": "Workflow Automation", "level": "Learning", "proficiency": 20 }
+          ]
+        },
+        {
+          "id": "businessCreative",
+          "title": "Business, Communication & Creative",
+          "items": [
+            { "name": "Entrepreneurship Fundamentals", "level": "Learning", "proficiency": 20 },
+            { "name": "Professional Email Writing", "level": "Practical Experience", "proficiency": 55 },
+            { "name": "Graphic Design", "level": "Learning", "proficiency": 25 },
+            { "name": "Video Editing", "level": "Learning", "proficiency": 25 }
           ]
         },
         {
@@ -312,7 +336,7 @@
     },
     "learning": {
       "title": "ما أتعلمه حالياً",
-      "items": ["بايثون لتحليل البيانات", "أساسيات التعلم الآلي (Machine Learning)"]
+      "items": ["علم بيانات الجينوم (Genomic Data Science)", "أساسيات التعلم الآلي (Machine Learning)"]
     },
     "languages": {
       "title": "اللغات والكفاءة",
@@ -333,9 +357,9 @@
     "goals": {
       "title": "الأهداف الاستراتيجية",
       "items": [
-        "نشر أول ورقة بحثية أكاديمية.",
-        "إتقان أدوات ومسارات المعلوماتية الحيوية.",
-        "التقديم للحصول على درجة الماجستير في ألمانيا."
+        "الانتقال من تعلّم Python وR إلى أول مشروع تحليلي حقيقي.",
+        "الحفاظ على التفوق الأكاديمي.",
+        "تأسيس أول مشروع ريادة أعمال وإطلاق أول نسخة MVP منه."
       ]
     },
     "experience": {
@@ -368,8 +392,13 @@
           "id": "tools",
           "title": "الأدوات والتقنيات",
           "items": [
-            { "name": "بايثون (Python)", "level": "طور التعلم", "proficiency": 25 },
-            { "name": "لغة R", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "بايثون (Python)", "level": "متمكن", "proficiency": 100 },
+            { "name": "لغة R", "level": "طور التعلم", "proficiency": 60 },
+            { "name": "HTML", "level": "طور التعلم", "proficiency": 25 },
+            { "name": "CSS", "level": "طور التعلم", "proficiency": 25 },
+            { "name": "JavaScript", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "Java", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "MySQL", "level": "طور التعلم", "proficiency": 20 },
             { "name": "إكسل (Excel)", "level": "خبرة عملية", "proficiency": 70 },
             { "name": "باوربوينت", "level": "خبرة عملية", "proficiency": 80 },
             { "name": "كانفا (Canva)", "level": "خبرة عملية", "proficiency": 75 },
@@ -382,6 +411,7 @@
           "items": [
             { "name": "تفاعل البوليميراز المتسلسل (PCR)", "level": "خبرة عملية", "proficiency": 70 },
             { "name": "استخلاص الحمض النووي", "level": "خبرة عملية", "proficiency": 70 },
+            { "name": "الهندسة الوراثية", "level": "طور التعلم", "proficiency": 25 },
             { "name": "زراعة الخلايا", "level": "طور التعلم", "proficiency": 30 },
             { "name": "بروتوكولات سلامة المختبر", "level": "مُطبَّقة في مشاريع", "proficiency": 85 }
           ]
@@ -393,6 +423,24 @@
             { "name": "Google Data Analytics", "level": "قيد الإنجاز", "proficiency": 35 },
             { "name": "إدخال البيانات وتنظيفها", "level": "خبرة عملية", "proficiency": 60 },
             { "name": "مراجعة الأدبيات العلمية", "level": "مُطبَّقة في مشاريع", "proficiency": 75 }
+          ]
+        },
+        {
+          "id": "aiAutomation",
+          "title": "الذكاء الاصطناعي والأتمتة",
+          "items": [
+            { "name": "بناء وكلاء الذكاء الاصطناعي", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "أتمتة سير العمل", "level": "طور التعلم", "proficiency": 20 }
+          ]
+        },
+        {
+          "id": "businessCreative",
+          "title": "ريادة الأعمال والتواصل والإبداع",
+          "items": [
+            { "name": "أساسيات ريادة الأعمال", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "كتابة رسائل البريد الإلكتروني المهنية", "level": "خبرة عملية", "proficiency": 55 },
+            { "name": "التصميم الجرافيكي", "level": "طور التعلم", "proficiency": 25 },
+            { "name": "مونتاج الفيديو", "level": "طور التعلم", "proficiency": 25 }
           ]
         },
         {
