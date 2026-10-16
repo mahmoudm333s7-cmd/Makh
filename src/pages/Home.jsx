@@ -65,16 +65,19 @@ const Home = () => {
   };
 
   const sectionToggle = (sectionId, label) => (
-    <button
-      type="button"
-      onClick={() => toggleSection(sectionId)}
-      aria-expanded={!collapsedSections[sectionId]}
-      aria-label={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
-      title={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
-      className="section-collapse-control text-gray-400 hover:text-neon-blue transition-colors shrink-0"
-    >
-      {collapsedSections[sectionId] ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
-    </button>
+    <>
+      <span>{label}</span>
+      <button
+        type="button"
+        onClick={() => toggleSection(sectionId)}
+        aria-expanded={!collapsedSections[sectionId]}
+        aria-label={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
+        title={`${collapsedSections[sectionId] ? (lang === 'en' ? 'Expand' : 'إظهار') : (lang === 'en' ? 'Collapse' : 'إخفاء')} ${label}`}
+        className="section-collapse-control text-gray-400 hover:text-neon-blue transition-colors shrink-0"
+      >
+        {collapsedSections[sectionId] ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
+      </button>
+    </>
   );
 
   useEffect(() => {
@@ -119,7 +122,7 @@ const Home = () => {
 
       {/* ── Hero ── */}
       <section id="home" className={`${collapsedSections.home ? 'min-h-fit' : 'min-h-[90vh] md:min-h-[80vh]'} flex flex-col justify-center items-center text-center px-6 relative overflow-hidden ${collapsedSections.home ? 'section-collapsed' : ''}`}>
-        <div className="section-collapse-row absolute top-4 right-6 z-10">{sectionToggle('home', lang === 'en' ? 'Introduction' : 'المقدمة')}</div>
+        <div className={`section-collapse-row z-10 ${collapsedSections.home ? '' : 'absolute top-4 right-6'}`}>{sectionToggle('home', lang === 'en' ? 'Introduction' : 'المقدمة')}</div>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-green/10 rounded-full blur-[120px] -z-10" />
         <motion.div initial="hidden" animate="visible" variants={sec} className="max-w-4xl z-10">
@@ -257,9 +260,11 @@ const Home = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 flex flex-col gap-4">
             {data.skills.categories.map((cat) => (
-              <div key={cat.id} className="glass-panel overflow-hidden border-white/5">
+              <div key={cat.id} id={`skill-category-${cat.id}`} className="glass-panel overflow-hidden border-white/5">
                 <button
                   onClick={() => setActiveCategory(activeCategory === cat.id ? null : cat.id)}
+                  aria-expanded={activeCategory === cat.id}
+                  aria-controls={`skill-category-${cat.id}`}
                   className={`w-full px-6 py-5 flex items-center justify-between transition-colors ${activeCategory === cat.id ? 'bg-white/5' : 'hover:bg-white/5'}`}
                 >
                   <div className={`flex items-center gap-4 font-bold text-lg ${getCatColor(cat.id)}`}>
