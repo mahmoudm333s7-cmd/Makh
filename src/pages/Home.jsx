@@ -563,7 +563,7 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">{cert.title}</h3>
               <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
-              <p className="text-purple-400/80 font-mono text-xs mb-6">{cert.date}</p>
+              {cert.date && <p className="text-purple-400/80 font-mono text-xs mb-6">{cert.date}</p>}
               {cert.fileUrl ? (
                 <a href={cert.fileUrl} target="_blank" rel="noopener noreferrer"
                   className="mt-auto px-6 py-2 border border-purple-500/30 text-purple-400 rounded-full text-sm hover:bg-purple-500/10 transition-colors">

@@ -278,6 +278,48 @@
           "date": "2025 – In Progress",
           "status": "in_progress",
           "fileUrl": ""
+        },
+        {
+          "title": "Photoshop Basics",
+          "issuer": "Yanfaa",
+          "date": "Aug 10, 2026",
+          "fileUrl": "/certificates/yanfaa-course-1.pdf"
+        },
+        {
+          "title": "Entrepreneurship 101",
+          "issuer": "Yanfaa",
+          "date": "Aug 8, 2026",
+          "fileUrl": "/certificates/yanfaa-course-2.pdf"
+        },
+        {
+          "title": "CapCut Video Editing",
+          "issuer": "Yanfaa",
+          "date": "Aug 7, 2026",
+          "fileUrl": "/certificates/yanfaa-course-3.pdf"
+        },
+        {
+          "title": "Business Email",
+          "issuer": "HP LIFE / HP Foundation",
+          "date": "Jul 6, 2026",
+          "fileUrl": "/certificates/hp-life-1.pdf"
+        },
+        {
+          "title": "Effective Leadership",
+          "issuer": "HP LIFE / HP Foundation",
+          "date": "Jun 24, 2026",
+          "fileUrl": "/certificates/hp-life-2.pdf"
+        },
+        {
+          "title": "Critical Thinking in the AI Era",
+          "issuer": "HP LIFE / HP Foundation",
+          "date": "Jun 24, 2026",
+          "fileUrl": "/certificates/hp-life-3.pdf"
+        },
+        {
+          "title": "McKinsey.org Forward Program",
+          "issuer": "McKinsey.org",
+          "date": "",
+          "fileUrl": "https://www.credly.com/badges/8a54abc6-5f4e-46d4-8b0f-82d5a737518c/linked_in_profile"
         }
       ]
     },
@@ -573,6 +615,48 @@
           "date": "2025 – قيد الإنجاز",
           "status": "in_progress",
           "fileUrl": ""
+        },
+        {
+          "title": "أساسيات الفوتوشوب",
+          "issuer": "ينفع",
+          "date": "10 أغسطس 2026",
+          "fileUrl": "/certificates/yanfaa-course-1.pdf"
+        },
+        {
+          "title": "ريادة الأعمال 101",
+          "issuer": "ينفع",
+          "date": "8 أغسطس 2026",
+          "fileUrl": "/certificates/yanfaa-course-2.pdf"
+        },
+        {
+          "title": "مونتاج الفيديو باستخدام CapCut",
+          "issuer": "ينفع",
+          "date": "7 أغسطس 2026",
+          "fileUrl": "/certificates/yanfaa-course-3.pdf"
+        },
+        {
+          "title": "كتابة رسائل البريد الإلكتروني للأعمال",
+          "issuer": "HP LIFE / مؤسسة HP",
+          "date": "6 يوليو 2026",
+          "fileUrl": "/certificates/hp-life-1.pdf"
+        },
+        {
+          "title": "القيادة الفعّالة",
+          "issuer": "HP LIFE / مؤسسة HP",
+          "date": "24 يونيو 2026",
+          "fileUrl": "/certificates/hp-life-2.pdf"
+        },
+        {
+          "title": "التفكير النقدي في عصر الذكاء الاصطناعي",
+          "issuer": "HP LIFE / مؤسسة HP",
+          "date": "24 يونيو 2026",
+          "fileUrl": "/certificates/hp-life-3.pdf"
+        },
+        {
+          "title": "برنامج ماكنزي فوروورد",
+          "issuer": "McKinsey.org",
+          "date": "",
+          "fileUrl": "https://www.credly.com/badges/8a54abc6-5f4e-46d4-8b0f-82d5a737518c/linked_in_profile"
         }
       ]
     },
