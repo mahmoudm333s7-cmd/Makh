@@ -36,8 +36,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-2">
             <Dna className="text-neon-green h-8 w-8 animate-pulse-slow" />
-            <span className="font-heading font-bold text-xl tracking-wider text-white">
-              BIO<span className="text-neon-blue">PORT</span>
+            <span className="font-heading font-bold text-base sm:text-xl tracking-[0.08em] sm:tracking-wider text-white whitespace-nowrap">
+              MAHMOUD<span className="text-neon-blue">VERSE</span>
             </span>
           </div>
 

@@ -19,7 +19,7 @@ function LoadingFallback() {
           <Dna className="loader-glyph" />
         </div>
         <div className="loader-brand font-heading font-bold tracking-[0.28em] text-lg">
-          <span>BIO</span><span>PORT</span>
+          <span>MAHMOUD</span><span>VERSE</span>
         </div>
         <span className="mt-3 text-sm text-gray-400 tracking-wide">
           {lang === 'ar' ? 'جارٍ تجهيز ملفك الأكاديمي…' : 'Preparing your academic portfolio…'}
