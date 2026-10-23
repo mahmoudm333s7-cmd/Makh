@@ -95,7 +95,7 @@
       "categories": [
         {
           "id": "tools",
-          "title": "Tools & Technologies",
+          "title": "Technology, Business, Communication & Creative",
           "items": [
             { "name": "Python", "level": "Proficient", "proficiency": 100 },
             { "name": "R", "level": "Learning", "proficiency": 60 },
@@ -107,7 +107,11 @@
             { "name": "Excel", "level": "Practical Experience", "proficiency": 70 },
             { "name": "PowerPoint", "level": "Practical Experience", "proficiency": 80 },
             { "name": "Canva", "level": "Practical Experience", "proficiency": 75 },
-            { "name": "ClickUp", "level": "Practical Experience", "proficiency": 65 }
+            { "name": "ClickUp", "level": "Practical Experience", "proficiency": 65 },
+            { "name": "Entrepreneurship Fundamentals", "level": "Learning", "proficiency": 20 },
+            { "name": "Professional Email Writing", "level": "Practical Experience", "proficiency": 55 },
+            { "name": "Graphic Design", "level": "Learning", "proficiency": 70 },
+            { "name": "Video Editing", "level": "Learning", "proficiency": 70 }
           ]
         },
         {
@@ -123,29 +127,13 @@
         },
         {
           "id": "bioinformatics",
-          "title": "Bioinformatics & Data",
+          "title": "Bioinformatics, Data & AI",
           "items": [
             { "name": "Google Data Analytics", "level": "In Progress", "proficiency": 35 },
             { "name": "Data Entry & Cleaning", "level": "Practical Experience", "proficiency": 60 },
-            { "name": "Scientific Literature Review", "level": "Applied in Projects", "proficiency": 75 }
-          ]
-        },
-        {
-          "id": "aiAutomation",
-          "title": "AI & Automation",
-          "items": [
-            { "name": "Building AI Agents", "level": "Learning", "proficiency": 20 },
-            { "name": "Workflow Automation", "level": "Learning", "proficiency": 20 }
-          ]
-        },
-        {
-          "id": "businessCreative",
-          "title": "Business, Communication & Creative",
-          "items": [
-            { "name": "Entrepreneurship Fundamentals", "level": "Learning", "proficiency": 20 },
-            { "name": "Professional Email Writing", "level": "Practical Experience", "proficiency": 55 },
-            { "name": "Graphic Design", "level": "Learning", "proficiency": 25 },
-            { "name": "Video Editing", "level": "Learning", "proficiency": 25 }
+            { "name": "Scientific Literature Review", "level": "Applied in Projects", "proficiency": 75 },
+            { "name": "Building AI Agents", "level": "Learning", "proficiency": 70 },
+            { "name": "Workflow Automation", "level": "Learning", "proficiency": 70 }
           ]
         },
         {
@@ -432,7 +420,7 @@
       "categories": [
         {
           "id": "tools",
-          "title": "الأدوات والتقنيات",
+          "title": "التقنية والأعمال والتواصل والإبداع",
           "items": [
             { "name": "بايثون (Python)", "level": "متمكن", "proficiency": 100 },
             { "name": "لغة R", "level": "طور التعلم", "proficiency": 60 },
@@ -444,7 +432,11 @@
             { "name": "إكسل (Excel)", "level": "خبرة عملية", "proficiency": 70 },
             { "name": "باوربوينت", "level": "خبرة عملية", "proficiency": 80 },
             { "name": "كانفا (Canva)", "level": "خبرة عملية", "proficiency": 75 },
-            { "name": "كليك أب (ClickUp)", "level": "خبرة عملية", "proficiency": 65 }
+            { "name": "كليك أب (ClickUp)", "level": "خبرة عملية", "proficiency": 65 },
+            { "name": "أساسيات ريادة الأعمال", "level": "طور التعلم", "proficiency": 20 },
+            { "name": "كتابة رسائل البريد الإلكتروني المهنية", "level": "خبرة عملية", "proficiency": 55 },
+            { "name": "التصميم الجرافيكي", "level": "طور التعلم", "proficiency": 70 },
+            { "name": "مونتاج الفيديو", "level": "طور التعلم", "proficiency": 70 }
           ]
         },
         {
@@ -460,29 +452,13 @@
         },
         {
           "id": "bioinformatics",
-          "title": "المعلوماتية الحيوية وتحليل البيانات",
+          "title": "المعلوماتية الحيوية والبيانات والذكاء الاصطناعي",
           "items": [
             { "name": "Google Data Analytics", "level": "قيد الإنجاز", "proficiency": 35 },
             { "name": "إدخال البيانات وتنظيفها", "level": "خبرة عملية", "proficiency": 60 },
-            { "name": "مراجعة الأدبيات العلمية", "level": "مُطبَّقة في مشاريع", "proficiency": 75 }
-          ]
-        },
-        {
-          "id": "aiAutomation",
-          "title": "الذكاء الاصطناعي والأتمتة",
-          "items": [
-            { "name": "بناء وكلاء الذكاء الاصطناعي", "level": "طور التعلم", "proficiency": 20 },
-            { "name": "أتمتة سير العمل", "level": "طور التعلم", "proficiency": 20 }
-          ]
-        },
-        {
-          "id": "businessCreative",
-          "title": "ريادة الأعمال والتواصل والإبداع",
-          "items": [
-            { "name": "أساسيات ريادة الأعمال", "level": "طور التعلم", "proficiency": 20 },
-            { "name": "كتابة رسائل البريد الإلكتروني المهنية", "level": "خبرة عملية", "proficiency": 55 },
-            { "name": "التصميم الجرافيكي", "level": "طور التعلم", "proficiency": 25 },
-            { "name": "مونتاج الفيديو", "level": "طور التعلم", "proficiency": 25 }
+            { "name": "مراجعة الأدبيات العلمية", "level": "مُطبَّقة في مشاريع", "proficiency": 75 },
+            { "name": "بناء وكلاء الذكاء الاصطناعي", "level": "طور التعلم", "proficiency": 70 },
+            { "name": "أتمتة سير العمل", "level": "طور التعلم", "proficiency": 70 }
           ]
         },
         {
